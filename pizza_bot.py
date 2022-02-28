@@ -1,4 +1,10 @@
-# Pizza bot program 
+# Pizza bot program
+#1/03/2022
+# Bugs - Phone number input allows letters
+#      - name input allows numbers
+
+
+
 import random
 from random import randint 
 
