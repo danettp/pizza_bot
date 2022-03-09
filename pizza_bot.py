@@ -14,6 +14,11 @@ pizza_names = ["Margherita","Pepperoni", "Hawaiian", "Cheese", "Italian", "Veggi
 # list of pizza prices               
 pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
+#list to store ordered pizzas
+order_list = []
+#list to store pizza prices
+order_cost = []
+
 #Customer details dictionary
 customer_details = {}
 
@@ -109,19 +114,41 @@ def menu():
 
 
 
+
 # Choose total number of pizzas - max 5
-
-
-
-
-
-
-
-
-
 # Pizza order - from menu - print each pizza ordered with cast
 
-
+def order_pizza():
+    # ask for total number of pizzas
+    num_pizzas = 0
+    while True:
+        try:
+            num_pizzas = int(input("How many pizzas do you want to order? "))
+            if num_pizzas >= 1 and num_pizzas <= 5:
+                break
+            else:
+                print("Your order must be between 1 and 5")
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter a number between 1 and 5 ")
+    # Choose pizzas from menu
+    for item in range(num_pizzas):
+        while num_pizzas > 0:
+            while True:
+                try:
+                    pizza_ordered = int(input("Please choose your pizzas by entering the number from the menu "))
+                    if pizza_ordered >= 1 and pizza_ordered <= 12:
+                        break
+                    else:
+                        print("Your pizza order must be between 1 and 12")
+                except ValueError:
+                    print("That is not a valid number")
+                    print("Please enter a number between 1 and 12")  
+            pizza_ordered = pizza_ordered-1
+            order_list.append(pizza_names[pizza_ordered])
+            order_cost.append(pizza_prices[pizza_ordered])
+            print("{} ${:.2f}" .format(pizza_names[pizza_ordered],pizza_prices[pizza_ordered]))
+            num_pizzas = num_pizzas-1
 
 
 
@@ -154,6 +181,7 @@ def main():
     welcome()
     order_type()
     menu()
+    order_pizza()
 
 
 main()
