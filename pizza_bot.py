@@ -33,6 +33,10 @@ def not_blank(question):
         else:
             print("This cannot be blank.")
 
+
+
+
+# Menu for pickup or delivery
 def welcome():
     '''
     Purpose: To generate a random name from the list and print out 
